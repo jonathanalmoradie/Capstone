@@ -39,64 +39,20 @@ li {
 }
 
 .nav-links a:hover {
-  background-color: rgb(87, 87, 119);
+  color: var(--button-color)
 }
 
 /* navbar menu */
-.menu {
+.nav-links {
   display: flex;
   gap: 1em;
   font-size: 18px;
 }
 
-.menu li {
+.nav-links li {
   padding: 5px 14px;
 }
 
-/* dropdown */
-.routines {
-  position: relative;
-}
-
-.dropdown {
-  background-color: rgb(87, 87, 119);
-  padding: 1em 0;
-  position: absolute;
-  display: none;
-  border-radius: 8px;
-  top: 35px;
-  color: #363753;
-}
-
-.dropdown li + li {
-  margin-top: 10px;
-}
-
-.dropdown li {
-  padding: 0.5em 1em;
-  width: 8em;
-  text-align: center;
-}
-
-.dropdown li:hover {
-  background-color: rgb(87, 87, 119);
-}
-
-.routines:hover .dropdown {
-  display: block;
-}
-
-/* Responsive Nav */
-input[type=checkbox] {
-  display: none;
-}
-
-.hamburger {
-  display: none;
-  font-size: 24px;
-  user-select: none;
-  color: var(--text-primary-color)
-}
 
 /* Jumbotron */
 .jumbotron,
@@ -147,6 +103,10 @@ input[type="button"] {
   font-weight: 200;
 }
 
+footer {
+  text-align: center;
+}
+
 /* Media queries */
 
 @media (max-width: 1100px) {
@@ -169,44 +129,48 @@ input[type="button"] {
 }
 
 
-@media (max-width: 768px) {
-  .menu {
-    display: none;
+@media (max-width: 879px) {
+  .hidden--mobile {
+    display: none !important;
+  }
+
+  .nav-links {
+    display: block;
     position: absolute;
     background-color: var(--secondary-color);
     right: 0;
     left: 0;
     text-align: center;
     padding: 16px 0;
-    margin-top: 10px;
+    top: 100px;
   }
 
-  .menu li:hover {
+  .nav-links li:hover {
     display: inline-block;
-    background-color: rgb(87, 87, 119);
+    color: var(--button-color);
     transition: 0.3s ease;
   }
 
-  .menu li + li {
+  .nav-links li + li {
     margin-top: 12px;
   }
+}
 
-  .hamburger {
-    display: block;
+@media (min-width: 880px) {
+  .nav-links {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 0;
   }
 
-  input[type=checkbox]:checked ~ .menu {
-    display: block;
-    transition: 0.3s ease;
+  .nav-links > li {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5rem 0.5rem;
+    border-radius: 25px;
   }
 
-  .dropdown {
-    left: 50%;
-    /* top: 30px; */
-    transform: translateX(35%);
-  }
-
-  .dropdown li:hover {
-    background-color: rgb(87, 87, 119);
+  nav > .fa-bars-staggered {
+    display: none;
   }
 }
