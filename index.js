@@ -1,3 +1,4 @@
+/* eslint-disable no-prototype-builtins */
 import Navigo from "navigo";
 import { capitalize } from "lodash";
 import { Nav, Main, Footer } from "./components";

@@ -1,3 +1,4 @@
 export default {
-  view: "Rewards"
+  view: "Rewards",
+  jumbotron: "Rewards placeholder"
 };

@@ -1,3 +1,4 @@
 export default {
-  view: "Mood"
+  view: "Mood",
+  jumbotron: "How are you feeling today?"
 };
