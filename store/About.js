@@ -1,3 +1,4 @@
 export default {
-  view: "About"
+  view: "About",
+  jumbotron: "About RooTine"
 };

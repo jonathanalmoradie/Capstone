@@ -15,6 +15,9 @@
 
 body {
   background-color: var(--primary-color);
+  min-height: 100vh !important;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -67,6 +70,47 @@ li {
   line-height: 40vh;
 }
 
+.home {
+  background-image: url("https://img.freepik.com/free-vector/arcade-game-world-pixel-scene_24640-45908.jpg?w=1380&t=st=1690228987~exp=1690229587~hmac=57ae6e8da2cb9a0c570e486e6872c73a469293e539a3117f955f75ec9e0d8fda");
+  background-size: cover;
+  width: auto;
+  height: auto;
+  color: var(--button-color);
+  text-shadow: 1px 1px 0px #363753;
+  outline: none;
+}
+
+.about {
+  background-image: url(https://img.freepik.com/free-vector/pixel-art-mystical-background_52683-87349.jpg?w=1380&t=st=1690235145~exp=1690235745~hmac=109af0a8e8a091605796f61634c32a31d123287234cc279d40211cfd972b61c0);
+  background-size: cover;
+  width: auto;
+  height: auto;
+  color: var(--secondary-color);
+  text-shadow: 1px 1px 0px #363753;
+  outline: none;
+}
+
+.about-content {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border-radius: 30px;
+  margin: 1rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 10vw;
+  margin: 10px;
+}
+
+.about-form {
+  padding: 1rem;
+  width: 80%;
+  box-shadow: 0px 0px 25px rgb(0,0,0);
+  border-radius: 30px;
+}
+
+
 /* Routine div's */
 .home-routine {
   display: flex;
@@ -83,6 +127,20 @@ li {
   padding: 2em;
   background-color: var(--secondary-color);
   color: var(--text-primary-color);
+}
+
+.morning {
+  background-color: #87CEFA;
+}
+
+.sun {
+  background-image: url("https://cdn-icons-png.flaticon.com/512/365/365851.png?w=826&t=st=1690230096~exp=1690230696~hmac=7321d558dd87c69a033023e646a6779964299235a638bc86c58b886849daf90e");
+  background-size: contain;
+}
+
+.evening {
+  background-image: url("https://img.freepik.com/free-vector/pixel-art-mystical-background_52683-87349.jpg?w=1380&t=st=1690229886~exp=1690230486~hmac=b7c5d81fa2590b97712d40791b4b1053f4151d55d4aae9784746a3c79e9e0f2a");
+  background-size: cover;
 }
 
 .routine-div > * {
@@ -105,6 +163,51 @@ input[type="button"] {
 
 footer {
   text-align: center;
+  margin-top: auto !important;
+}
+
+.mood {
+  outline: none;
+  height: 10vh;
+  line-height: 10vh;
+}
+
+.mood-form {
+  display: flex;
+  justify-content: center;
+}
+
+.selector input {
+  margin: 0;
+  padding: 0;
+  appearance: none;
+}
+
+.emotion-1 {
+  background-image: url(https://cdn-icons-png.flaticon.com/512/1182/1182401.png?w=826&t=st=1690235825~exp=1690236425~hmac=b42142ae2b37ec7e4950ae89e0abc63425327cca1d0ce5aa8d36a90b35bf3a2d);
+}
+.emotion-2 {
+  background-image: url(https://cdn-icons-png.flaticon.com/512/1182/1182403.png?w=826&t=st=1690235841~exp=1690236441~hmac=1d146db783e408c19131eba8edbcfbeadfe865702278ad1e06ceffc1a8b82780);
+}
+.emotion-3 {
+  background-image: url(https://cdn-icons-png.flaticon.com/512/1182/1182399.png?w=826&t=st=1690235853~exp=1690236453~hmac=5f3f310ba805b8502d18b920ee5dd791e1d81e63f1ce2783bd61602cf63d4c50);
+}
+.emotion-4 {
+  background-image: url(https://cdn-icons-png.flaticon.com/512/1182/1182408.png?w=826&t=st=1690235869~exp=1690236469~hmac=38defa001a44e4d948527d07c9fbfbbf2b9e27deb1c45c8c85bc36eaf45346bf);
+}
+.emotion-5 {
+  background-image: url(https://cdn-icons-png.flaticon.com/512/1182/1182409.png?w=826&t=st=1690235881~exp=1690236481~hmac=81b6e0beb22f6901e1e8d123f0c36f8db1afaed96b4fdd49f12556d81d3cf183);
+}
+
+
+
+.mood-label {
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
 }
 
 /* Media queries */

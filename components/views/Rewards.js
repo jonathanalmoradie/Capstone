@@ -1,9 +1,9 @@
 import html from "html-literal";
 
-export default () => html`
+export default state => html`
   <section>
     <div class="jumbotron">
-      <h1>Rewards placeholder</h1>
+      <h1>${state.jumbotron}</h1>
     </div>
   </section>
 `;

@@ -1,3 +1,4 @@
 export default {
-  view: "Routines"
+  view: "Routines",
+  jumbotron: "Routines placeholder"
 };
