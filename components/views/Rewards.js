@@ -16,7 +16,7 @@ export default state => html`
                 alt="weather icon"
             /></span>
           </li class="weather-text">
-          <li class="weather-text" id="weather-description"><h3>Sky's are ${state.weather.description.toLowerCase()}</h3></li>
+          <li class="weather-text" id="weather-description"><h3>Sky's Are ${state.weather.description}</h3></li>
           <li class="weather-text">
             Current temperature is:
             <span class="weather-output">${state.weather.temp}&deg; F</span>

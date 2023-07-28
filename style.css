@@ -80,8 +80,8 @@ li {
 }
 
 .jumbo-content {
-  background-image: url(https://img.freepik.com/free-vector/arcade-game-world-pixel-scene_24640-45912.jpg?w=1800&t=st=1690576814~exp=1690577414~hmac=2f1df7481c06e8190aac93b3e1ba75249d5d9ce79635a2e98b299afd129304f2);
-
+  background-image: url(./imgs/jumbo_background.jpg);
+  background-size: cover;
   background-position: center;
   width: 100%;
   height: 60vh;
