@@ -15,8 +15,9 @@
 
 body {
   background-color: var(--primary-color);
-  min-height: 100vh !important;
+  /* min-height: 100vh !important; */
   display: flex;
+  justify-content: center;
   flex-direction: column;
 }
 
@@ -58,36 +59,37 @@ li {
 
 
 /* Jumbotron */
-.jumbotron,
-.calendar {
+.jumbotron {
   display: flex;
   justify-content: center;
   outline: 1px dashed red;
-  border-radius: 30px;
+  /* border-radius: 30px; */
   margin: 3rem;
-  /* padding: 8rem 1rem 8rem 1rem; */
-  height: 40vh;
+  height: 100vh;
   line-height: 40vh;
 }
 
-.home {
-  background-image: url("https://img.freepik.com/free-vector/arcade-game-world-pixel-scene_24640-45908.jpg?w=1380&t=st=1690228987~exp=1690229587~hmac=57ae6e8da2cb9a0c570e486e6872c73a469293e539a3117f955f75ec9e0d8fda");
-  background-size: cover;
-  width: auto;
-  height: auto;
+.jumbotron > h1 {
+  font-size: 3em;
+}
+
+.calendar {
+  display: flex;
+  justify-content: center;
+  margin: 3rem;
+}
+
+.jumbo-content {
+  background-image: url(https://img.freepik.com/free-vector/arcade-game-world-pixel-scene_24640-45912.jpg?w=1800&t=st=1690576814~exp=1690577414~hmac=2f1df7481c06e8190aac93b3e1ba75249d5d9ce79635a2e98b299afd129304f2);
+
+  background-position: center;
+  width: 100%;
+  height: 60vh;
   color: var(--button-color);
   text-shadow: 1px 1px 0px #363753;
   outline: none;
-}
-
-.about {
-  background-image: url(https://img.freepik.com/free-vector/pixel-art-mystical-background_52683-87349.jpg?w=1380&t=st=1690235145~exp=1690235745~hmac=109af0a8e8a091605796f61634c32a31d123287234cc279d40211cfd972b61c0);
-  background-size: cover;
-  width: auto;
-  height: auto;
-  color: var(--secondary-color);
-  text-shadow: 1px 1px 0px #363753;
-  outline: none;
+  margin: 0 auto;
+  align-items: center;
 }
 
 .about-content {
@@ -98,7 +100,7 @@ li {
   padding: 1rem;
   font-size: 1.2rem;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 10vw;
   margin: 10px;
 }
@@ -114,34 +116,42 @@ li {
 /* Routine div's */
 .home-routine {
   display: flex;
-  justify-content: space-around;
-  padding: 2em;
-
+  justify-content: space-evenly;
+  padding: 5em;
+  width: 75%;
+  margin: 1rem auto;
 }
 
 .routine-div {
   border-radius: 30px;
-  /* outline: 1px dashed red; */
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
-  padding: 2em;
+  align-content: space-around;
+  padding: 3em 2em 3em 2em;
   background-color: var(--secondary-color);
   color: var(--text-primary-color);
+  font-size: 1.2em;
 }
+
+.routine-div-label {
+  font-size: 2rem;
+}
+
 
 .morning {
   background-color: #87CEFA;
 }
 
-.sun {
+/* .sun {
   background-image: url("https://cdn-icons-png.flaticon.com/512/365/365851.png?w=826&t=st=1690230096~exp=1690230696~hmac=7321d558dd87c69a033023e646a6779964299235a638bc86c58b886849daf90e");
   background-size: contain;
-}
+} */
 
-.evening {
+/* .evening {
   background-image: url("https://img.freepik.com/free-vector/pixel-art-mystical-background_52683-87349.jpg?w=1380&t=st=1690229886~exp=1690230486~hmac=b7c5d81fa2590b97712d40791b4b1053f4151d55d4aae9784746a3c79e9e0f2a");
   background-size: cover;
-}
+} */
 
 .routine-div > * {
   padding: 0 1rem 0 1rem;
@@ -208,6 +218,42 @@ footer {
   display: inline-block;
   width: 100px;
   height: 100px;
+}
+
+/* Rewards page */
+.weather-div {
+  display: flex;
+  justify-content: center;
+  background-color: #363753;
+  padding: 1em;
+  width: 25%;
+  margin: 1rem auto;
+  border-radius: 30px;
+}
+
+.weather-details {
+  box-shadow: 0px 0px 25px rgb(0,0,0);
+  border-radius: 30px;
+  padding: 1em 2em;
+  color: var(--primary-color);
+  width: 65%;
+  font-size: 1.2em;
+}
+
+#weather-description {
+  text-align: center;
+}
+
+.weather-text {
+  padding: .75rem 0;
+}
+
+#city {
+  font-size: 2rem;
+}
+
+.weather-output {
+  float: right;
 }
 
 /* Media queries */

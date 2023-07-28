@@ -1,4 +1,4 @@
 export default {
   view: "Home",
-  jumbotron: `Hello [User]! Let's crush those goals!`
+  jumbotron: `Hello Dominic! Let's crush those goals!`
 };
