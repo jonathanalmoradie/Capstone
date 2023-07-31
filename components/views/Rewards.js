@@ -16,9 +16,9 @@ export default state => html`
                 alt="weather icon"
             /></span>
           </li class="weather-text">
-          <li class="weather-text" id="weather-description"><h3>Skies Are ${state.weather.description}</h3></li>
+          <li class="weather-text" id="weather-description"><h3>Current weather: ${state.weather.description}</h3></li>
           <li class="weather-text">
-            Current temperature is:
+            Temperature:
             <span class="weather-output">${state.weather.temp}&deg; F</span>
           </li>
           <li class="weather-text">
