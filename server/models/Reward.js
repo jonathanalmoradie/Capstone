@@ -1,22 +1,22 @@
 import mongoose from "mongoose";
 
-const routineSchema = new mongoose.Schema({
-  task: {
+const rewardSchema = new mongoose.Schema({
+  reward: {
     type: String,
     required: true,
     validate: /^[A-Za-z0-9 ]*$/
   },
-  isDone: {
+  isClaimed: {
     type: Boolean,
     required: true,
     default: false
   },
-  pointValue: {
+  pointCost: {
     type: Number,
     required: true
   }
 });
 
-const Routine = mongoose.model("Routine", routineSchema);
+const Reward = mongoose.model("Reward", rewardSchema);
 
-export default Routine;
+export default Reward;

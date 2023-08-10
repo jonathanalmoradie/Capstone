@@ -1,4 +1,6 @@
 export default {
   view: "Home",
-  jumbotron: `Hello Dominic! Let's crush those goals!`
+  jumbotron: `Hello! Let's crush those goals!`,
+  appointments: [],
+  event: {}
 };

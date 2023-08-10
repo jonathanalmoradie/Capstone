@@ -3,6 +3,7 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import routines from "./routers/routines.js";
+import appointments from "./routers/appointments.js";
 
 // Initialize the Express application
 const app = express();
@@ -29,7 +30,9 @@ db.once(
 const PORT = process.env.PORT || 4040;
 
 const logging = (request, response, next) => {
-  console.log(`${request.method} ${request.url} ${Date.now()}`);
+  console.log(
+    `${request.method} ${request.url} ${Date.now().toLocaleString("en-US")}`
+  );
   next();
 };
 
@@ -60,8 +63,9 @@ app.get("/status", (request, response) => {
   response.json({ message: "Service healthy" });
 });
 
-// only handles requests with /routines
+// only handles requests with specified routes
 app.use("/routines", routines);
+app.use("/appointments", appointments);
 
 // Tell the Express app to start listening
 // Let the humans know I am running and listening on 4040
