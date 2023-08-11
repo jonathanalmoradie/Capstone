@@ -1,6 +1,6 @@
 import html from "html-literal";
 
-export default (state, links) => html`
+export default state => html`
   <section>
     <!-- Jumbotron banner -->
     <div class="jumbotron jumbo-content">
@@ -41,15 +41,22 @@ export default (state, links) => html`
     </div>
 
     <!-- Calendar div -->
-    <div class="calendar">
-      <iframe
-        src="https://calendar.google.com/calendar/embed?src=1fe9c3e5762ab6b05178cbc6a1be3c31725a655fd06bd6993b89005d9fda325c%40group.calendar.google.com&ctz=America%2FLos_Angeles"
-        style="border: 0"
-        width="1000"
-        height="600"
-        frameborder="0"
-        scrolling="no"
-      ></iframe>
+    ${state.appointments
+      ? `<div class="calendar-container">
+    <div id="calendar"></div>
+  </div>`
+      : ""}
+    ${state.event
+      ? `<div class="appointment-container">
+    <h3>${state.event.title}</h3>
+    <div>
+      <em>Start: </em><span>${state.event.start}</span>
     </div>
+    <div>
+      <em>End: </em><span>${state.event.end}</span>
+    </div>
+    <button id="delete-appointment" data-id="${state.event.id}">Delete Appointment</button>
+  </div>`
+      : ""}
   </section>
 `;

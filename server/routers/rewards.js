@@ -1,14 +1,14 @@
 import { Router } from "express";
-import Routine from "../models/Routine.js";
+import Reward from "../models/Reward.js";
 
 const router = Router();
 
-// CREATE: Create new routine route
+// CREATE: Create new reward route
 router.post("/", async (request, response) => {
   try {
-    const newRoutine = new Routine(request.body);
+    const newReward = new Reward(request.body);
 
-    const data = await newRoutine.save();
+    const data = await newReward.save();
 
     response.json(data);
   } catch (error) {
@@ -22,13 +22,13 @@ router.post("/", async (request, response) => {
   }
 });
 
-// READ: Get all routines route
+// READ: Get all rewards route
 router.get("/", async (request, response) => {
   try {
     // Store the query params into a JavaScript Object
     const query = request.query; // Defaults to an empty object {}
 
-    const data = await Routine.find(query);
+    const data = await Reward.find(query);
 
     response.json(data);
   } catch (error) {
@@ -39,10 +39,10 @@ router.get("/", async (request, response) => {
   }
 });
 
-// READ:id: Get a single routine by ID
+// READ:id: Get a single reward by ID
 router.get("/:id", async (request, response) => {
   try {
-    const data = await Routine.findById(request.params.id);
+    const data = await Reward.findById(request.params.id);
 
     response.json(data);
   } catch (error) {
@@ -53,10 +53,10 @@ router.get("/:id", async (request, response) => {
   }
 });
 
-// DELETE: Delete a routine by ID
+// DELETE: Delete a reward by ID
 router.delete("/:id", async (request, response) => {
   try {
-    const data = await Routine.findByIdAndRemove(request.params.id, {});
+    const data = await Reward.findByIdAndRemove(request.params.id, {});
 
     response.json(data);
   } catch (error) {
@@ -67,18 +67,18 @@ router.delete("/:id", async (request, response) => {
   }
 });
 
-// UPDATE: Update a single routine by ID
+// UPDATE: Update a single reward by ID
 router.put("/:id", async (request, response) => {
   try {
     const body = request.body;
 
-    const data = await Routine.findByIdAndUpdate(
+    const data = await Reward.findByIdAndUpdate(
       request.params.id,
       {
         $set: {
-          task: body.task,
-          isDone: body.isDone,
-          pointValue: body.pointValue
+          reward: body.reward,
+          isClaimed: body.isClaimed,
+          pointCost: body.pointCost
         }
       },
       {
