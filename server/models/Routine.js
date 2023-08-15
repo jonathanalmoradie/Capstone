@@ -7,6 +7,11 @@ const routineSchema = new mongoose.Schema({
     validate: /^[A-Za-z0-9 ]*$/
   },
   steps: [String],
+  timeOfDay: {
+    type: String,
+    required: true,
+    validate: /^[A-Za-z0-9 ]*$/
+  },
   isDone: {
     type: Boolean,
     required: true,

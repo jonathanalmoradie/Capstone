@@ -24,7 +24,7 @@ function handleEventDragResize(info) {
 
   if (confirm("Are you sure about this change?")) {
     const requestData = {
-      customer: event.title,
+      title: event.title,
       start: event.start.toJSON(),
       end: event.end.toJSON(),
       url: event.url
@@ -98,12 +98,12 @@ function afterRender(state) {
             .post(`${process.env.ROOTINE_API}/appointments`, requestData)
             .then(response => {
               // Push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
-              response.data.title = response.data.customer;
+              response.data.title = response.data.title;
               response.data.url = `/appointments/${response.data._id}`;
               console.log("response.data:", response.data);
               store.Home.appointments.push(response.data);
               console.log(
-                `Event '${response.data.customer}' (${response.data._id}) has been created.`
+                `Event '${response.data.title}' (${response.data._id}) has been created.`
               );
               calendar.addEvent(response.data);
               calendar.unselect();
