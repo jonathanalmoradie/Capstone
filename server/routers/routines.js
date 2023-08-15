@@ -77,6 +77,8 @@ router.put("/:id", async (request, response) => {
       {
         $set: {
           task: body.task,
+          steps: body.steps,
+          timeOfDay: body.timeOfDay,
           isDone: body.isDone,
           pointValue: body.pointValue
         }
