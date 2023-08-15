@@ -9,7 +9,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   font-family: 'Patrick Hand', cursive;
 }
 
@@ -71,12 +71,6 @@ li {
 
 .jumbotron > h1 {
   font-size: 3em;
-}
-
-.calendar {
-  display: flex;
-  justify-content: center;
-  margin: 3rem;
 }
 
 .jumbo-content {
@@ -161,6 +155,23 @@ li {
 
 
 /* Calendar */
+.calendar-container {
+  width: 95%;
+  height: calc(85vh - 85px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.appointment-container {
+  margin: 2em;
+}
+
+#delete-appointment {
+  margin-top: 2em;
+  padding: 0.5em;
+  background-color: hsl(4deg 99% 50%);
+  color: white;
+}
 
 
 /* Buttons */

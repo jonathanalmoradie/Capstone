@@ -50,12 +50,18 @@ export default state => html`
       ? `<div class="appointment-container">
     <h3>${state.event.title}</h3>
     <div>
-      <em>Start: </em><span>${state.event.start}</span>
+      <em>Start: </em><span>${state.event.start.toLocaleString("en-US", {
+        timeZone: "PST"
+      })}</span>
     </div>
     <div>
-      <em>End: </em><span>${state.event.end}</span>
+      <em>End: </em><span>${state.event.end.toLocaleString("en-US", {
+        timeZone: "PST"
+      })}</span>
     </div>
-    <button id="delete-appointment" data-id="${state.event.id}">Delete Appointment</button>
+    <button id="delete-appointment" data-id="${
+      state.event.id
+    }">Delete Appointment</button>
   </div>`
       : ""}
   </section>

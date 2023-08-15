@@ -6,6 +6,7 @@ const routineSchema = new mongoose.Schema({
     required: true,
     validate: /^[A-Za-z0-9 ]*$/
   },
+  steps: [String],
   isDone: {
     type: Boolean,
     required: true,
