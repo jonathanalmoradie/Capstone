@@ -1,5 +1,6 @@
 export default {
   view: "Rewards",
-  jumbotron: "Rewards placeholder",
+  jumbotron: "You worked hard. Pick a reward!",
+  rewards: {},
   weather: {}
 };
