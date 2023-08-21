@@ -10,11 +10,11 @@
   margin: 0;
   padding: 0;
   /* box-sizing: border-box; */
-  font-family: 'Patrick Hand', cursive;
+  font-family: 'Delius', cursive;
 }
 
 body {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   /* min-height: 100vh !important; */
   display: flex;
   justify-content: center;
@@ -25,7 +25,7 @@ a {
   text-decoration: none;
 }
 
-li {
+ul > li {
   list-style: none;
 }
 
@@ -46,6 +46,10 @@ li {
   color: var(--button-color)
 }
 
+.nav-links a:active {
+  color: var(--button-color)
+}
+
 /* navbar menu */
 .nav-links {
   display: flex;
@@ -57,6 +61,34 @@ li {
   padding: 5px 14px;
 }
 
+/* navbar dropdown */
+.routine-nav {
+  position: relative;
+}
+
+.dropdown {
+  background-color: #363753c0;
+  padding: 1em 0;
+  position: absolute;
+  display: none;
+  border-radius: 30px;
+  top: 35px;
+  box-shadow: 0px 0px 25px rgb(0,0,0);
+}
+
+.dropdown li + li {
+  margin-top: 10px;
+}
+
+.dropdown li {
+  padding: 0.5em 1em;
+  width: 8em;
+  text-align: center;
+}
+
+.routine-nav:hover .dropdown {
+  display: block;
+}
 
 /* Jumbotron */
 .jumbotron {
@@ -112,18 +144,36 @@ li {
 .home-routine {
   display: flex;
   justify-content: space-evenly;
-  padding: 5em;
-  width: 75%;
-  margin: 1rem auto;
+  padding: 3em;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  background-color: var(--primary-color);
+}
+
+#circle-sun {
+  background-color: yellow;
+  border-radius: 50%;
+  width: 15%;
+  height: 100%;
+  float: right;
+}
+
+#circle-moon {
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  width: 15%;
+  height: 100%;
+  float: right;
 }
 
 .routine-div {
   border-radius: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  align-content: space-around;
-  padding: 3em 2em 3em 2em;
+  justify-content: center;
+  align-content: center;
+  padding: 2em 1em 2em 1em;
   background-color: var(--secondary-color);
   color: var(--text-primary-color);
   font-size: 1.2em;
@@ -153,13 +203,49 @@ li {
   margin: 0 1rem 0 1rem;
 }
 
+.routine-container {
+  margin: 1em 0 1em 0;
+}
+
+.routine-step {
+  margin: 1em;
+}
+
+.routine-list {
+  margin: 1em;
+  padding: 10px 0;
+}
+
+.baseComp {
+  padding: 1rem;
+  margin: 0 auto;
+  width: 50%;
+  background-color: #363753c0;
+  box-shadow: 0px 0px 25px rgb(0,0,0);
+  color: #dfe3f0;
+}
+
+.hidden--step {
+  display: none;
+}
+
+.point {
+  float: right;
+}
 
 /* Calendar */
+
+.calendar-div {
+  background-color: #363753;
+}
+
 .calendar-container {
   width: 95%;
   height: calc(85vh - 85px);
   margin-left: auto;
   margin-right: auto;
+  background-color: #363753;
+  color: #fefefe;
 }
 
 .appointment-container {
@@ -175,17 +261,27 @@ li {
 
 
 /* Buttons */
-input[type="button"] {
+button {
   background-color: var(--button-color);
   padding: 0.2em 1.5em 0.2em 1.5em;
   border-radius: 10px;
   color: #363753;
   font-weight: 200;
+  width: 50%;
+}
+
+#add-routine {
+  background-color: var(--button-color);
+  padding: 0;
+  margin: 0;
+  width: 30%;
+  float: right;
 }
 
 footer {
   text-align: center;
-  margin-top: auto !important;
+  margin: 1em !important;
+  color: #fefefe;
 }
 
 .mood {

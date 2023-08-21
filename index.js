@@ -52,6 +52,19 @@ function afterRender(state) {
     document.querySelector(".nav-links").classList.toggle("hidden--mobile");
   });
 
+  if (state.view === "Home") {
+    const morning = document.querySelector("#start-morning-routine");
+    const evening = document.querySelector("#start-evening-routine");
+
+    morning.addEventListener("click", () => {
+      state.Routines.timeOfDay = "morning";
+    });
+
+    evening.addEventListener("click", () => {
+      state.Routines.timeOfDay = "evening";
+    });
+  }
+
   if (state.view === "Home" && state.appointments) {
     const calendarEl = document.getElementById("calendar");
     calendar = new FullCalendar.Calendar(calendarEl, {
@@ -119,6 +132,20 @@ function afterRender(state) {
     });
     calendar.render();
   }
+
+  if (
+    state.view === "Routines" ||
+    state.view === "Morning" ||
+    state.view === "Evening"
+  ) {
+    document.querySelectorAll(".routine-list").forEach(routine => {
+      routine.addEventListener("click", () => {
+        document.querySelectorAll(".step-list").forEach(step => {
+          step.classList.toggle("hidden--step");
+        });
+      });
+    });
+  }
 }
 
 router.hooks({
@@ -170,11 +197,15 @@ router.hooks({
         }
         break;
       case "Routines":
+      case "Morning":
+      case "Evening":
         axios
           .get(`${process.env.ROOTINE_API}/routines`)
           .then(response => {
             console.log("response: ", response);
             store.Routines.routines = response.data;
+            store.Morning.routines = response.data;
+            store.Evening.routines = response.data;
             done();
           })
           .catch(err => {

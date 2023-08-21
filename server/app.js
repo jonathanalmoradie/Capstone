@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import routines from "./routers/routines.js";
 import appointments from "./routers/appointments.js";
+import rewards from "./routers/rewards.js";
 
 // Initialize the Express application
 const app = express();
@@ -66,6 +67,7 @@ app.get("/status", (request, response) => {
 // only handles requests with specified routes
 app.use("/routines", routines);
 app.use("/appointments", appointments);
+app.use("/rewards", rewards);
 
 // Tell the Express app to start listening
 // Let the humans know I am running and listening on 4040
