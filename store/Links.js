@@ -8,7 +8,7 @@ export default [
     evening: "Evening",
     eveningText: "Evening"
   },
-  { title: "Mood", text: "Mood" },
+  // { title: "Mood", text: "Mood" },
   { title: "Rewards", text: "Rewards" },
   { title: "About", text: "About" }
 ];

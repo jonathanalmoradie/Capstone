@@ -148,7 +148,27 @@ ul > li {
   width: 100%;
   text-align: center;
   margin: 0 auto;
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
+}
+
+.routine-page {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  grid-column-gap: 1em;
+  align-items: stretch;
+}
+
+.routine-page > .baseComp {
+  width: 70%;
+}
+
+.routine-view > .routine-div {
+  width: 70%;
+}
+
+.routine-view {
+  flex-direction: column;
+  width: 100%;
 }
 
 #circle-sun {
@@ -157,6 +177,7 @@ ul > li {
   width: 15%;
   height: 100%;
   float: right;
+  box-shadow: 0px 0px 25px rgb(0,0,0);
 }
 
 #circle-moon {
@@ -164,7 +185,8 @@ ul > li {
   border-radius: 50%;
   width: 15%;
   height: 100%;
-  float: right;
+  float: left;
+  box-shadow: 0px 0px 25px rgb(0,0,0);
 }
 
 .routine-div {
@@ -177,33 +199,25 @@ ul > li {
   background-color: var(--secondary-color);
   color: var(--text-primary-color);
   font-size: 1.2em;
+  box-shadow: 0px 0px 25px rgb(0,0,0);
 }
 
 .routine-div-label {
   font-size: 2rem;
 }
 
-
 .morning {
   background-color: #87CEFA;
+  color: #363753;
 }
-
-/* .sun {
-  background-image: url("https://cdn-icons-png.flaticon.com/512/365/365851.png?w=826&t=st=1690230096~exp=1690230696~hmac=7321d558dd87c69a033023e646a6779964299235a638bc86c58b886849daf90e");
-  background-size: contain;
-} */
-
-/* .evening {
-  background-image: url("https://img.freepik.com/free-vector/pixel-art-mystical-background_52683-87349.jpg?w=1380&t=st=1690229886~exp=1690230486~hmac=b7c5d81fa2590b97712d40791b4b1053f4151d55d4aae9784746a3c79e9e0f2a");
-  background-size: cover;
-} */
 
 .routine-div > * {
   padding: 0 1rem 0 1rem;
   margin: 0 1rem 0 1rem;
 }
 
-.routine-container {
+.routine-container,
+.reward-container {
   margin: 1em 0 1em 0;
 }
 
@@ -211,27 +225,34 @@ ul > li {
   margin: 1em;
 }
 
-.routine-list {
+.routine-list,
+.reward-list {
   margin: 1em;
   padding: 10px 0;
 }
 
 .baseComp {
-  padding: 1rem;
+  padding: 1.5rem;
   margin: 0 auto;
-  width: 50%;
+  width: 34%;
   background-color: #363753c0;
   box-shadow: 0px 0px 25px rgb(0,0,0);
   color: #dfe3f0;
+  border-radius: 30px;
 }
 
-.hidden--step {
+.step-list {
   display: none;
 }
 
 .point {
   float: right;
 }
+/*
+.reward-page-container {
+  display: flex;
+  justify-content: space-evenly;
+} */
 
 /* Calendar */
 
@@ -261,16 +282,22 @@ ul > li {
 
 
 /* Buttons */
-button {
+button,
+.finish-routine {
   background-color: var(--button-color);
   padding: 0.2em 1.5em 0.2em 1.5em;
   border-radius: 10px;
   color: #363753;
-  font-weight: 200;
+  font-weight: 300;
   width: 50%;
 }
 
-#add-routine {
+.finish-routine {
+  margin: 0 auto;
+}
+
+#add-routine,
+#add-reward {
   background-color: var(--button-color);
   padding: 0;
   margin: 0;
