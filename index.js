@@ -138,13 +138,32 @@ function afterRender(state) {
     state.view === "Morning" ||
     state.view === "Evening"
   ) {
-    document.querySelectorAll(".routine-list").forEach(routine => {
-      routine.addEventListener("click", () => {
-        document.querySelectorAll(".step-list").forEach(step => {
-          step.classList.toggle("hidden--step");
-        });
-      });
-    });
+    // document.querySelectorAll(".routine-task").forEach(routine => {
+    //   routine.addEventListener("click", event => {
+    //     console.log(store.Routines.routines);
+    //     document.querySelectorAll(".step-list").forEach((step, i) => {
+    //       console.log(store.Routines.routines[i]._id);
+    //       // step.id.toggle(`#routine-`);
+    //       step.classList.toggle(`${store.Routines.routines[i]._id}`);
+    //     });
+    //   });
+    // });
+    let allRoutines = document.querySelectorAll(".routine-task");
+    for (let x = 0; x < allRoutines.length; x++) {
+      allRoutines[x].onclick = function() {
+        if (this.parentNode) {
+          let childList = this.parentNode.querySelectorAll(".step-list");
+          for (let y = 0; y < childList.length; y++) {
+            let currentState = childList[y].style.display;
+            if (currentState == "none") {
+              childList[y].style.display = "block";
+            } else {
+              childList[y].style.display = "none";
+            }
+          }
+        }
+      };
+    }
   }
 }
 
@@ -213,6 +232,16 @@ router.hooks({
           });
         break;
       case "Rewards":
+        axios
+          .get(`${process.env.ROOTINE_API}/rewards`)
+          .then(response => {
+            console.log("response: ", response);
+            store.Rewards.rewards = response.data;
+            done();
+          })
+          .catch(error => {
+            console.log(error);
+          });
         axios
           // Get request to retrieve the current weather data using the API key and providing a city name
           .get(

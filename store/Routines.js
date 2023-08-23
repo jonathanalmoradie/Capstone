@@ -1,5 +1,5 @@
 export default {
   view: "Routines",
-  jumbotron: "All Routines",
+  jumbotron: "All Tasks",
   routines: {}
 };

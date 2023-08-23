@@ -19,7 +19,7 @@ export default state => html`
                 <li class="routine-list">
                   <input type="checkbox" />
                   <strong class="routine-task">${routine.task}</strong
-                  ><span class="point">Points: ${routine.pointValue}</span>
+                  ><span class="point">${routine.pointValue} pts</span>
                   <ol class="step-list hidden--step">
                     ${routine.steps.map(step => {
                       return html`
