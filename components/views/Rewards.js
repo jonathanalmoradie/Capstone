@@ -8,12 +8,27 @@ export default state => html`
     <div class="reward-page-container">
       <div class="reward-container">
         <div class="baseComp">
-          <button id="add-reward">+</button>
+          <button id="add-reward"><i class="fa-solid fa-plus"></i></button>
           <h4>All Rewards</h4>
           <br />
           <hr />
           <br />
+          <form action="" id="add-new-reward" method="POST" class="no-show add-form">
+            <h4>Add new task</h4>
+            <div>
+              <label for="reward">Reward:</label>
+              <br>
+              <input type="text" name="reward" id="reward" placeholder="Get a snack" required />
+            </div>
+            <div>
+              <label for="pointCost">Points:</label>
+              <br>
+              <input type="number" name="pointCost" id="pointCost" placeholder="5">
+            </div>
+            <input type="submit" name="submit" value="Submit" />
+          </form>
           <ul>
+            ${console.log(state.rewards)}
             ${state.rewards.map(reward => {
               return html`
                 <li class="reward-list">
@@ -69,12 +84,4 @@ export default state => html`
       </div>
     </div>
   </section>
-`;
-
-// city: response.data.name,
-// temp: kelvinToFahrenheit(response.data.main.temp),
-// feelsLike: kelvinToFahrenheit(response.data.main.feels_like),
-// minTemp: response.data.main.temp_min,
-// maxTemp: response.data.main.temp_max,
-// description: response.data.weather[0].main,
-// icon: response.data.weather[0].icon
+  `;

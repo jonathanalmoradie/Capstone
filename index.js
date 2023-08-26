@@ -26,8 +26,7 @@ function handleEventDragResize(info) {
     const requestData = {
       title: event.title,
       start: event.start.toJSON(),
-      end: event.end.toJSON(),
-      url: event.url
+      end: event.end.toJSON()
     };
 
     axios
@@ -46,24 +45,24 @@ function handleEventDragResize(info) {
   }
 }
 
+const getRewards = async () => {
+  try {
+    await axios.get(`${process.env.ROOTINE_API}/rewards`).then(response => {
+      console.log("response: ", response);
+      console.log("data: ", response.data);
+      store.Rewards.rewards = response.data;
+      // done();
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 function afterRender(state) {
   // add menu toggle to bars icon in nav bar
   document.querySelector(".fa-bars-staggered").addEventListener("click", () => {
     document.querySelector(".nav-links").classList.toggle("hidden--mobile");
   });
-
-  if (state.view === "Home") {
-    const morning = document.querySelector("#start-morning-routine");
-    const evening = document.querySelector("#start-evening-routine");
-
-    morning.addEventListener("click", () => {
-      state.Routines.timeOfDay = "morning";
-    });
-
-    evening.addEventListener("click", () => {
-      state.Routines.timeOfDay = "evening";
-    });
-  }
 
   if (state.view === "Home" && state.appointments) {
     const calendarEl = document.getElementById("calendar");
@@ -138,16 +137,6 @@ function afterRender(state) {
     state.view === "Morning" ||
     state.view === "Evening"
   ) {
-    // document.querySelectorAll(".routine-task").forEach(routine => {
-    //   routine.addEventListener("click", event => {
-    //     console.log(store.Routines.routines);
-    //     document.querySelectorAll(".step-list").forEach((step, i) => {
-    //       console.log(store.Routines.routines[i]._id);
-    //       // step.id.toggle(`#routine-`);
-    //       step.classList.toggle(`${store.Routines.routines[i]._id}`);
-    //     });
-    //   });
-    // });
     let allRoutines = document.querySelectorAll(".routine-task");
     for (let x = 0; x < allRoutines.length; x++) {
       allRoutines[x].onclick = function() {
@@ -164,6 +153,142 @@ function afterRender(state) {
         }
       };
     }
+  }
+
+  if (state.view === "Morning") {
+    document
+      .querySelector("#finish-morning-routine")
+      .addEventListener("click", () => {
+        router.navigate("/Rewards");
+        // console.log(store.Morning.routines);
+      });
+
+    document.querySelector(".add-routine").addEventListener("click", () => {
+      document.querySelector("form").classList.toggle("no-show");
+    });
+
+    document
+      .querySelector("#add-new-task")
+      .addEventListener("submit", event => {
+        event.preventDefault();
+
+        const inputList = event.target.elements;
+        console.log("Input List: ", inputList);
+        const steps = inputList.steps.value.split(", ");
+
+        const requestData = {
+          task: inputList.task.value,
+          steps: steps,
+          isDone: false,
+          timeOfDay: "morning",
+          pointValue: inputList.pointValue.value
+        };
+
+        console.log("Request body: ", requestData);
+
+        axios
+          .post(`${process.env.ROOTINE_API}/routines`, requestData)
+          .then(response => {
+            store.Morning.routines.push(response.data);
+            router.navigate("/Morning");
+          })
+          .catch(error => {
+            console.log("Error: ", error);
+          });
+      });
+  }
+
+  if (state.view === "Evening") {
+    document
+      .querySelector("#finish-evening-routine")
+      .addEventListener("click", () => {
+        router.navigate("/Rewards");
+        // console.log(store.Evening.routines);
+      });
+
+    document
+      .querySelector("#add-routine-evening")
+      .addEventListener("click", () => {
+        document.querySelector("form").classList.toggle("no-show");
+      });
+
+    document
+      .querySelector("#add-new-task2")
+      .addEventListener("submit", event => {
+        event.preventDefault();
+
+        const inputList = event.target.elements;
+        console.log("Input List: ", inputList);
+        const steps = inputList.steps.value.split(", ");
+
+        const requestData = {
+          task: inputList.task.value,
+          steps: steps,
+          isDone: false,
+          timeOfDay: "evening",
+          pointValue: inputList.pointValue.value
+        };
+
+        console.log("Request body: ", requestData);
+
+        axios
+          .post(`${process.env.ROOTINE_API}/routines`, requestData)
+          .then(response => {
+            store.Morning.routines.push(response.data);
+            router.navigate("/Evening");
+          })
+          .catch(error => {
+            console.log("Error: ", error);
+          });
+      });
+
+    // if (state.view === "Morning" || state.view === "Evening") {
+    //   let deleteTask = document.querySelectorAll(".fa-trash");
+    //   console.log(deleteTask);
+    // deleteTask.addEventListener("click", () => {
+    //   console.log(deleteTask);
+    // if (confirm("Are you sure you want to delete this task?")) {
+    //   axios
+    //     .delete(`${process.env.ROOTINE_API}/routines/${deleteTask.id}`)
+    //     .then(response => {
+    //       `Event '${response.data.task}' (${response.data._id}) has been deleted.`;
+    //       router.navigate("/Morning");
+    //     });
+    // }
+    // });
+    // }
+  }
+  if (state.view === "Rewards") {
+    document.querySelector("#add-reward").addEventListener("click", () => {
+      document.querySelector("form").classList.toggle("no-show");
+    });
+
+    document
+      .querySelector("#add-new-reward")
+      .addEventListener("submit", event => {
+        event.preventDefault();
+
+        const inputList = event.target.elements;
+        console.log("Input List: ", inputList);
+
+        const requestData = {
+          reward: inputList.reward.value,
+          isClaimed: false,
+          pointCost: inputList.pointCost.value
+        };
+
+        console.log("Request body: ", requestData);
+
+        axios
+          .post(`${process.env.ROOTINE_API}/rewards`, requestData)
+          .then(response => {
+            store.Rewards.rewards.push(response.data);
+            router.navigate("/Rewards");
+          })
+          .catch(error => {
+            console.log("Error: ", error);
+          });
+      });
   }
 }
 
@@ -222,6 +347,7 @@ router.hooks({
           .get(`${process.env.ROOTINE_API}/routines`)
           .then(response => {
             console.log("response: ", response);
+            console.log("response: ", response.data);
             store.Routines.routines = response.data;
             store.Morning.routines = response.data;
             store.Evening.routines = response.data;
@@ -232,16 +358,7 @@ router.hooks({
           });
         break;
       case "Rewards":
-        axios
-          .get(`${process.env.ROOTINE_API}/rewards`)
-          .then(response => {
-            console.log("response: ", response);
-            store.Rewards.rewards = response.data;
-            done();
-          })
-          .catch(error => {
-            console.log(error);
-          });
+        getRewards();
         axios
           // Get request to retrieve the current weather data using the API key and providing a city name
           .get(

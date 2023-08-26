@@ -28,8 +28,8 @@ export default state => html`
       </div>
 
       <div class="baseComp">
-        <button id="add-routine">+</button>
-        <h4>All Tasks</h4>
+        <!-- <button id="add-routine">+</button> -->
+        <h3 class="routine-title">All Tasks</h3>
         <br />
         <hr />
         <br />
