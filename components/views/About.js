@@ -41,18 +41,25 @@ export default state => html`
         would apply if a user selected a happy face.
       </div>
       <div class="about-form">
-        <form action="https://formspree.io/f/moqoqppv" method="POST">
+        <form
+          id="suggestion-form"
+          action="https://formspree.io/f/moqoqppv"
+          method="POST"
+        >
           <legend>Have a suggestion on how to improve the app?</legend>
           <label class="about-form-label">
             Your email:
-            <input type="email" name="email" placeholder="john.doe@email.com" />
           </label>
+          <br />
+          <input type="email" name="email" placeholder="john.doe@email.com" />
           <br />
           <label class="about-form-label">
             Suggestion:
-            <textarea name="message" placeholder="Your message here"></textarea>
           </label>
+          <br />
+          <textarea name="message" placeholder="Your message here"></textarea>
           <!-- your other form fields go here -->
+          <br />
           <input type="button" value="Send" />
         </form>
       </div>
