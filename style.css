@@ -100,7 +100,7 @@ ul > li {
 }
 
 .jumbotron > h1 {
-  font-size: 3em;
+  font-size: 3vw;
 }
 
 .jumbo-content {
@@ -484,6 +484,28 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  .routine-page {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .routine-page > .routine-view {
+    max-width: 100%;
+    align-items: center;
+    padding: 1em 0 1em 0;
+  }
+
+  .baseComp {
+    width: 75%;
+  }
+
+  .weather-div {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+  }
+
 }
 
 
@@ -512,6 +534,16 @@ footer {
   .nav-links li + li {
     margin-top: 12px;
   }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+  }
+
+  .about-content .about-form {
+    margin: 0 auto;
+  }
 }
 
 @media (min-width: 880px) {
@@ -530,5 +562,25 @@ footer {
 
   nav > .fa-bars-staggered {
     display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .jumbo-content > h1 {
+    font-size: 5vw;
+  }
+
+  .home-routine {
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .routine-div-label,
+  .routine-div > .routine-buttons {
+    font-size: 5vw;
+  }
+
+  .baseComp > ul > .routine-list {
+    font-size: 3vw;
   }
 }
