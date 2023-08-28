@@ -33,7 +33,7 @@ ul > li {
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 10px;
   background-color: var(--secondary-color);
 }
@@ -476,7 +476,6 @@ footer {
 
   .routine-div {
     margin: 1em 0 1em 0;
-    width: 100%;
   }
 
   .routine-div > * {
